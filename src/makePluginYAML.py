@@ -1,7 +1,7 @@
 from pick import pick
 import os
 import makeMainFile
-def init(pluginName, author, version, api):
+def makePluginYAML(pluginName, author, version, api):
     # Prompt the user for confirmation
     validation, index = pick(
         ["oui", "non"],
@@ -28,7 +28,6 @@ def init(pluginName, author, version, api):
                 file.write(f"main: {str.lower(author)}\\{str.lower(pluginName)}\\Main")
             
             print(f"Fichier 'plugin.yml' créé à l'emplacement: {pluginFile}")
-            makeMainFile.init(author, pluginName, full_path)
         except FileExistsError:
             print("Dossier déjà créé")
         
